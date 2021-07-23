@@ -1,12 +1,15 @@
 import "./App.css";
 import CreateNote from "./components/CreateNote";
 import Header from "./components/Header";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <>
       <Header />
-      <CreateNote />
+      <Container className="mb-3">
+        <CreateNote />
+      </Container>
     </>
   );
 }

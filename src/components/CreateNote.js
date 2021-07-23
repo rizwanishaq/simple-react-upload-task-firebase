@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Row, Container, Image } from "react-bootstrap";
 import { notesRef, storage } from "../firebase";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const CreateNote = () => {
   const [note, setNote] = useState("");
@@ -71,10 +72,10 @@ const CreateNote = () => {
       <Row>
         <input type="file" onChange={handleChange} />
         <Button onClick={handleUpload}>Upload</Button>
+        <ProgressBar completed={progress} />
       </Row>
-      <progress value={progress} max="100" />
       <Row>
-        <Image src={url} roundedCircle fluid />
+        <Image src={url} xs={6} md={4} roundedCircle fluid />
       </Row>
     </Container>
   );
