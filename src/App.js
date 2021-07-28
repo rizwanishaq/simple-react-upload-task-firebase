@@ -1,7 +1,9 @@
 import "./App.css";
+
 import CreateNote from "./components/CreateNote";
 import Header from "./components/Header";
 import { Container } from "react-bootstrap";
+import GetData from "./components/GetData";
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <Header />
       <Container className="mb-3">
         <CreateNote />
+        <GetData />
       </Container>
     </>
   );
