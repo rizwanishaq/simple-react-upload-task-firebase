@@ -1,6 +1,8 @@
 import React from "react";
+import { Container, Col } from "react-bootstrap";
 import { useQuery } from "react-query";
 import CountryCard from "./CountryCard";
+import ReactLoading from "react-loading";
 
 const GetData = () => {
   const { isLoading, isFetching, error, data, status } = useQuery(
@@ -10,16 +12,20 @@ const GetData = () => {
   );
 
   return (
-    <div>
+    <>
       <h1>{status}</h1>
       {isFetching && "Background Updating"}
-      {isLoading && "Loading"}
+      {isLoading && (
+        <ReactLoading type={"spokes"} color={"red"} height={667} width={375} />
+      )}
       {error && error.message}
-      {data &&
-        data.map((country) => (
-          <CountryCard key={country.name} country={country} />
-        ))}
-    </div>
+      <Container>
+        {data &&
+          data.map((country) => (
+            <CountryCard key={country.name} country={country} />
+          ))}
+      </Container>
+    </>
   );
 };
 
